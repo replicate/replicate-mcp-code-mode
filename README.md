@@ -1,6 +1,6 @@
 # Replicate MCP: Code Mode
 
-This is a demo of "code mode" in Replicate's MCP server, which allows language models to write and execute code in a sandboxed environment.
+This is a demo of "code mode" in [Replicate's MCP server](https://replicate.com/docs/reference/mcp), which allows language models to write and execute code in a sandboxed environment.
 
 ## Why?
 
