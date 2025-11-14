@@ -20,7 +20,13 @@ To learn more, check out this blog post: https://blog.cloudflare.com/code-mode
 
 This demo uses Claude Code, but you can use any app that supports Replicate MCP like Google Gemini CLI, OpenAPI Codex CLI, Cursor, etc.
 
-Start by installing the Replicate MCP server with code execution tools:
+First, set your Replicate API token as an environment variable. You can get your API token from https://replicate.com/account/api-tokens
+
+```sh
+export REPLICATE_API_TOKEN=<your-token-here>
+```
+
+Then install the Replicate MCP server with code execution tools:
 
 ```
 claude mcp add "replicate-code-mode" --scope user --transport stdio -- npx -y replicate-mcp@alpha --tools=code
