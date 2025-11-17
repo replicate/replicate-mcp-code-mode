@@ -8,7 +8,7 @@ Traditional MCP exposes one tool per API method, which creates problems as APIs 
 
 Code mode solves this by providing two tools: one for searching SDK documentation, and another that accepts TypeScript code. The LLM uses the doc search tool to learn how to write code against the Replicate SDK, then executes that code in a Deno sandbox. This allows the LLM to write arbitrary code that can call multiple methods, handle complex logic, and return only the final result. This is faster, more accurate, and more token-efficient than one-tool-per-method because LLMs excel at writing TypeScript code against real APIs.
 
-Our implementation uses a doc search approach to teach the LLM about the SDK, which is more context-efficient than loading the full TypeScript interface into the context window. This concept is inspired by Cloudflare's code mode work, though our implementation differs in how the LLM learns the SDK.
+Cloudflare engineers recently coined the term "code mode" in a blog post: [Code Mode: the better way to use MCP](https://blog.cloudflare.com/code-mode/). The approach described there is similar, but our current implementation is slightly different: Replicate's MCP server (created by Stainless) uses a "docs search" tool to teach the LLM about the SDK, rather than loading the full TypeScript interface into the context window.
 
 ## Prerequisites
 
