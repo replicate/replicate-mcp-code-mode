@@ -6,9 +6,9 @@ This is a demo of "code mode" in [Replicate's MCP server](https://replicate.com/
 
 Traditional MCP exposes one tool per API method, which creates problems as APIs grow: each tool consumes context window space, and LLMs struggle to select the right tool from dozens or hundreds of options. Chaining operations is also inefficient, as each tool result gets fed back through the LLM just to be copied into the next tool call, wasting tokens and processing time.
 
-Code mode solves this by exposing a single tool that accepts TypeScript code. Replicate MCP runs the Replicate TypeScript SDK in a Deno sandbox, allowing the LLM to write arbitrary code that can call multiple methods, handle complex logic, and return only the final result. This is faster, more accurate, and more token-efficient than one-tool-per-method because LLMs excel at writing TypeScript code against real APIs.
+Code mode solves this by providing two tools: one for searching SDK documentation, and another that accepts TypeScript code. The LLM uses the doc search tool to learn how to write code against the Replicate SDK, then executes that code in a Deno sandbox. This allows the LLM to write arbitrary code that can call multiple methods, handle complex logic, and return only the final result. This is faster, more accurate, and more token-efficient than one-tool-per-method because LLMs excel at writing TypeScript code against real APIs.
 
-To learn more, check out this blog post: https://blog.cloudflare.com/code-mode
+Our implementation uses a doc search approach to teach the LLM about the SDK, which is more context-efficient than loading the full TypeScript interface into the context window. This concept is inspired by Cloudflare's code mode work, though our implementation differs in how the LLM learns the SDK.
 
 ## Prerequisites
 
@@ -69,4 +69,4 @@ The result should look something like this:
 
 This is an early demo of code mode with Replicate MCP.
 
-We are working with Stainless to get this feature supported in our remote MCP server which runs on Cloudflare. In the near future, you should expect to be able to run your code in sandboxed cloud enviroments, without having to install anything locally.
+We are working with Stainless to get this feature supported in our remote MCP server. In the near future, you should expect to be able to run your code in sandboxed cloud environments, without having to install anything locally.
