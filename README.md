@@ -2,6 +2,8 @@
 
 This is a demo of "code mode" in [Replicate's MCP server](https://replicate.com/docs/reference/mcp), which allows language models to write and execute code in a sandboxed environment.
 
+https://github.com/user-attachments/assets/3bc0a8fc-e25d-4d5c-a3a5-ee565b340322
+
 ## Why?
 
 Traditional MCP exposes one tool per API method, which creates problems as APIs grow: each tool consumes context window space, and LLMs struggle to select the right tool from dozens or hundreds of options. Chaining operations is also inefficient, as each tool result gets fed back through the LLM just to be copied into the next tool call, wasting tokens and processing time.
